@@ -1,24 +1,63 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+var cxPrincipal = document.querySelector(".cx-principal");
+var cxPerguntas = document.querySelector(".cx-perguntas");
+var cxAlternativas = document.querySelector(".cx-alternativas");
+var cxResultado = document.querySelector(".cx-resultado");
+var txResultado = document.querySelector(".tx-resultado");
+var perguntas = [
+    {
+        enunciado: "A IA pode automatizar tarefas repetitivas.",
+        alternativas: [
+            "Vai eliminar tarefas monotonas",
+            "Vai tirar muitos empregos"
+        ]
+    },
+    {
+        enunciado: "A IA pode tomar decisões baseadas em dados.",
+        alternativas: [
+            "Maravilhoso",
+            "Assustador"
+        ]
+    },
+    {
+        enunciado: "A IA pode substituir certos empregos.",
+        alternativas: [
+            "Não vejo problemas",
+            "É o fim dos empregos como conhecemos hoje"
+        ]
+    },
+    {
+        enunciado: "A IA pode ajudar a prever tendências de mercado.",
+        alternativas: [
+           
+            "Incrível",
+            "Sinistro"
+        ]
+    },
+    {
+        enunciado: "A IA pode trabalhar 24/7 sem pausas.",
+        alternativas: [
+            "Surpreendente",
+            "Mão de obra barata"
+        ]
+    }
+];
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Você decide o futuro da IA</title>
-</head>
 
-<body>
-    <div class="cx-principal">
-        <h1>Você decide o futuro da IA</h1>
-        <div class="cx-perguntas"></div>
-        <div class="cx-alternativas"></div>
-        <div class="cx-resultado">
-        <p class="texto-resultado"></p>
-    </div>
-    </div>
+var posiçaoAtual = 0;
+var perguntaAtual;
 
-    <script src="main.js"></script>
-</body>
+mostraPergunta();
 
-</html>
+function mostraPergunta(){
+    perguntaAtual = perguntas[posiçaoAtual];
+    cxPerguntas.textContent = perguntaAtual.enunciado;
+mostraAlternativas();
+}
+
+function mostraAlternativas() {
+for (var alternativa of perguntaAtual.alternativa) {
+    var botaoAlternativas = document.createElement("button");
+    botaoAlternativas.textContent = alternativa;
+    cxAlternativas.appendChild(botaoAlternativas);
+}
+}
